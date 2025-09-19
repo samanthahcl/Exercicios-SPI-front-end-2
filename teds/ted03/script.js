@@ -1,40 +1,22 @@
-let aulas = parseInt(prompt("Digite o número de aulas do semestre: "));
-let faltas = parseInt(prompt("Digite a quantidade de faltas do aluno: "));
-let p1 = parseFloat(prompt("Digite a nota da primeira prova (P1): "));
-let p2 = parseFloat(prompt("Digite a nota da segunda prova (P2): "));
+console.log("--- Manipulação de Arrays ---");
 
-let percentualPresenca = ((aulas - faltas) / aulas) * 100;
-let media = (p1 + p2) / 2;
+const nomes = ["Ana", "Bruno", "Carlos", "Diana", "Eduardo"];
+console.log("Array original:", nomes);
+console.log("Terceiro nome:", nomes[2]);
 
-let recuperacao = null;
-let situacao = "";
+nomes.push("Fernanda");
+nomes.unshift("Gustavo");
+console.log("Array com nomes adicionados:", nomes);
 
-if (percentualPresenca < 75) {
-    situacao = "Reprovado por falta";
-} else {
-    if (media >= 7) {
-        situacao = "Aprovado";
-    } else if (media >= 5 && media < 7) {
-        recuperacao = parseFloat(prompt("Digite a nota da prova de recuperação: "));
-        let novaMedia = (media + recuperacao) / 2;
-        if (novaMedia >= 5) {
-            situacao = "Aprovado após recuperação";
-        } else {
-            situacao = "Reprovado após recuperação";
-        }
-    } else {
-        situacao = "Reprovado por nota";
-    }
-}
+nomes.pop();
+console.log("Array com último nome removido:", nomes);
 
-console.log("Número de aulas do semestre: " + aulas);
-console.log("Número de faltas do aluno: " + faltas);
-console.log("Percentual de presença do aluno: " + percentualPresenca.toFixed(2) + "%");
-console.log("Primeira nota (P1): " + p1);
-console.log("Segunda nota (P2): " + p2);
+const numeros = [2, 4, 6, 8];
+const numerosDobrados = numeros.map(numero => numero * 2);
+console.log("Array original de números:", numeros);
+console.log("Array de números dobrados (usando map):", numerosDobrados);
 
-if (recuperacao !== null) {
-    console.log("Nota da recuperação: " + recuperacao);
-}
-
-console.log("Situação final do aluno: " + situacao);
+const maisNumeros = [1, 3, 5, 7, 9];
+const numerosMaioresQueCinco = maisNumeros.filter(numero => numero > 5);
+console.log("Array de números para filtrar:", maisNumeros);
+console.log("Array com números maiores que 5 (usando filter):", numerosMaioresQueCinco);
